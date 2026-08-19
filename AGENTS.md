@@ -16,10 +16,12 @@ Run these checks before requesting review:
 
 - `pnpm lint` — lint TypeScript and TSX with Biome.
 - `pnpm build` — type-check project references and build production assets.
+- `pnpm exec vitest run` — run unit tests with Vitest.
+- `pnpm exec playwright test` — run end-to-end tests with Playwright.
 - `pnpm check` — type-check, build, and perform a Wrangler dry-run deployment check.
 - `pnpm cf-typegen` — regenerate `worker-configuration.d.ts` after changing Worker bindings in `wrangler.json`.
 
-There is no automated test suite yet. For behaviour changes, add focused tests when introducing a test framework; until then, document manual local verification in the pull request.
+Use Vitest for focused unit tests and name them `*.test.ts` or `*.test.tsx` beside the code they cover. Keep Playwright end-to-end tests in `tests/` and name them `*.spec.ts`. Add or update tests for behaviour changes, and document any manual verification that automated tests do not cover in the pull request.
 
 ## Style and Naming
 
