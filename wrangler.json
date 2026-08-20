@@ -5,11 +5,9 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "v-subsc",
-	"main": "./src/worker/index.ts",
+	"main": "./src/worker/index.ts" /* ここがworkerEntryPoint、APIのメインの入口を指定している */,
 	"compatibility_date": "2025-10-08",
-	"compatibility_flags": [
-		"nodejs_compat"
-	],
+	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
 		"enabled": true
 	},
@@ -17,7 +15,14 @@
 	"assets": {
 		"directory": "./dist/client",
 		"not_found_handling": "single-page-application"
-	}
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "v-subsc-db",
+			"database_id": "51c2543d-622c-4e95-862e-bd014e8e5e3c"
+		}
+	]
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

@@ -6,7 +6,16 @@ Use Japanese as the preferred language for communication with the user. Use anot
 
 ## Project Structure
 
-This is a TypeScript full-stack app built with Vite, React, Hono, and Cloudflare Workers. Keep browser UI in `src/app/`: `App.tsx` is the root component, styles live beside it, and static UI assets are in `src/app/assets/`. Keep HTTP routes and Worker code in `src/worker/index.ts`. Put public, directly served files in `public/`, and maintain product notes in `docs/`. `wrangler.json` defines the Worker entry point and deployment configuration.
+This is a TypeScript full-stack app built with Vite, React, Hono, and Cloudflare Workers.
+
+- `src/app/` — browser UI; `App.tsx` is the root component, styles live beside it, and static UI assets belong in `src/app/assets/`.
+- `src/worker/index.ts` — backend entry point.
+- `src/worker/routes/` — API route implementations.
+- `src/worker/db/` — D1 access code.
+- `migrations/` — versioned D1 schema changes.
+- `public/` — directly served public files.
+- `docs/` — product notes.
+- `wrangler.json` — Worker entry point and deployment configuration.
 
 ## Local Development First
 
@@ -34,3 +43,5 @@ The repository history currently uses short, imperative subjects (for example, `
 ## Cloudflare Worker Changes
 
 Deployment is not the primary feedback loop. Use it only after local checks pass. Before changing Workers APIs, bindings, quotas, or runtime assumptions, consult the current [Cloudflare Workers documentation](https://developers.cloudflare.com/workers/) and regenerate types for binding changes. Never commit secrets; configure them through Cloudflare/Wrangler.
+
+The D1 binding is `DB` and targets `v-subsc-db`. Apply migrations locally before using `--remote`; `pnpm dev` uses local D1 by default. Before remote D1 operations or deployment, run `pnpm exec wrangler whoami` and verify the target.
