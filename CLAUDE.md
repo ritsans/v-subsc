@@ -4,6 +4,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 See `AGENTS.md` for repository guidelines: commands (`pnpm dev`/`lint`/`build`/`check`/`cf-typegen`/`deploy`), project structure, communication language, code style/naming, and commit conventions. This file only adds context Claude Code needs that isn't covered there.
 
+## Session start
+
+Always read `docs/TASK.md` before doing anything else; see `AGENTS.md` § Session Handoff for the rules.
+
 ## Product context
 
 A subscription-tracking web app (v-subsc), built on the Cloudflare `vite-react-template` (React + Vite + Hono + Cloudflare Workers). The product spec is `docs/mvp-spec.md` (Japanese) — read it before implementing subscription features; it defines the full MVP scope (add/edit/delete subscriptions, JPY/USD pricing without conversion, free-trial day tracking, categories, sorting, totals) and explicitly excludes auth, D1, search, and a few other things for this phase.

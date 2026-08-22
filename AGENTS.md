@@ -17,6 +17,16 @@ This is a TypeScript full-stack app built with Vite, React, Hono, and Cloudflare
 - `docs/` — product notes.
 - `wrangler.json` — Worker entry point and deployment configuration.
 
+## Session Handoff (TASK.md)
+
+`docs/TASK.md` is the single source of truth for work-in-progress state across AI sessions.
+
+- Read `TASK.md` first at the start of every session, before planning or editing code.
+- Update it (full overwrite, not append) before every commit, and include it in
+  that commit. Detailed writing rules are embedded as a comment in the file
+  itself — follow them.
+- Do not track progress anywhere else.
+
 ## Local Development First
 
 Install dependencies with `pnpm install`, then use `pnpm dev` for everyday work. It starts the Vite development server with hot-module replacement; exercise both the React UI and `/api/` routes locally before considering a deployment.
